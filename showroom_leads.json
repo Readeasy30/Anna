@@ -1,0 +1,25 @@
+{
+    "showroom_meta": {},
+    "leads": [
+        {
+            "timestamp": "2026-08-18 19:42:57",
+            "shop_name": "Ozark Precision Auto",
+            "phone": "417-555-0122",
+            "trade": "Auto Repair",
+            "city": "Springfield",
+            "pipeline_status": "campaign_ready",
+            "assigned_executive": "Anna-WebsiteManager",
+            "browser_header_used": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        },
+        {
+            "timestamp": "2026-08-18 19:42:57",
+            "shop_name": "Tri-Lakes Service Center",
+            "phone": "417-555-0144",
+            "trade": "Auto Repair",
+            "city": "Branson",
+            "pipeline_status": "campaign_ready",
+            "assigned_executive": "Anna-WebsiteManager",
+            "browser_header_used": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+        }
+    ]
+}
