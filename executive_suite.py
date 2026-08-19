@@ -3,13 +3,18 @@ import os
 import random
 from datetime import datetime
 
+# 🏗️ Import our automated infrastructure asset constructor logic directly
+try:
+    from build_avatar_assets import AvatarAssetBuilder
+    infrastructure_builder = AvatarAssetBuilder()
+except Exception as e:
+    print(f"⚠️ Infrastructure Link Warning: {e}")
+    infrastructure_builder = None
+
 class IntegratedExecutiveSuite:
     def __init__(self):
         self.workspace = "C:/Users/Wholelychit/Anna-agent/webmasters-trade-factory"
         self.leads_db = "showroom_leads.json"
-        self.mailing_list_file = "mailing_list.json"
-        
-        # Advisor 2 Parameter: Base page speed targets to calculate urgency gaps
         self.target_speed_benchmark = 1.2 
 
     def run_production_pipeline_sweep(self):
@@ -17,8 +22,14 @@ class IntegratedExecutiveSuite:
         print("🏭 WEBMASTERS LLC | CORE PRODUCTION LIFECYCLE SWEEP")
         print("=======================================================")
         
+        # 🛡️ AUTOMATED PRE-FLIGHT CHECK: Enforce avatar asset builds before running tasks
+        if infrastructure_builder:
+            infrastructure_builder.build_all_required_assets()
+        else:
+            print("⚠️ Skipped: System asset builder tool is offline.")
+
         if not os.path.exists(self.leads_db):
-            print("⚠️ Intake Error: Central database file not initialized yet.")
+            print("⚠️ Intake Error: Central lead tracking database file not initialized yet.")
             return
 
         with open(self.leads_db, "r", encoding="utf-8") as f:
@@ -31,11 +42,11 @@ class IntegratedExecutiveSuite:
             
             print(f"\n⚙️ Processing Business Record: [{shop_name.upper()}]")
 
-            # 🎯 ADVISOR 2: Anna-WebsiteManager Page Speed Urgency Calculation
-            current_shop_speed = round(random.uniform(3.5, 6.2), 1) # Scraped slow speed metric
+            # Calculate Page Speed Urgency Gaps
+            current_shop_speed = round(random.uniform(3.5, 6.2), 1) 
             speed_gap = round(current_shop_speed - self.target_speed_benchmark, 1)
 
-            # 📢 ADVISOR 3: Samantha-Compliance 3-Step Follow-Up Cadence Execution
+            # 3-Step Follow-Up Cadence Execution
             if status == "staged_for_outreach":
                 print(f"✉️ [Step 1] Samantha drafts initial cold pitch with speed urgency...")
                 lead["pipeline_status"] = "step_1_sent"
@@ -44,21 +55,19 @@ class IntegratedExecutiveSuite:
                 self._write_campaign_file(shop_name, city, current_shop_speed, speed_gap, step=1)
                 
             elif status == "step_1_sent":
-                print(f"🔄 [Step 2] Day-3 Follow-Up: Samantha drafts a secondary reminder...")
+                print(f"🔄 [Step 2] Day-3 Follow-Up: Samantha drafts secondary reminder...")
                 lead["pipeline_status"] = "step_2_sent"
                 self._write_campaign_file(shop_name, city, current_shop_speed, speed_gap, step=2)
 
-            # 💰 ADVISOR 4: Sterling-CFO Automated No-Penalty Grace Loop Hooks
+            # CFO Grace Loop Parameters
             elif status == "payment_failed_stale":
                 print(f"🛑 [Sterling-CFO] Card declined. Auto-Stopping website framework link instantly...")
                 lead["framework_link_status"] = "PAUSED_DISCONNECTED"
-                print("📱 Text Alert Dispatched: 'Billing issue detected. Site paused with zero penalty.'")
                 
             elif status == "payment_recovery_success":
                 print(f"⚡ [Sterling-CFO] Stripe webhook received invoice payment! Reconnecting pipeline...")
                 lead["framework_link_status"] = "LIVE_ACTIVE"
                 lead["pipeline_status"] = "active_subscriber"
-                print("🚀 Success: Website framework brought back online instantly with no penalties.")
 
         with open(self.leads_db, "w", encoding="utf-8") as f:
             json.dump(database, f, indent=4)
