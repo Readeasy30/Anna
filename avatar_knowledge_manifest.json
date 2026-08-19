@@ -17,6 +17,12 @@
                 "Small business pain point data",
                 "local trade search optimization metrics"
             ]
+        },
+        "visuals": {
+            "sex": "Female",
+            "look": "Sharp Business Attire & Glasses",
+            "color": "#38bdf8",
+            "build": "Fit, Average Height"
         }
     },
     "market_scraper": {
@@ -31,6 +37,12 @@
                 "Missouri regional grids (Springfield, Branson, Hollister)",
                 "National A-Z Zip Matrix"
             ]
+        },
+        "visuals": {
+            "sex": "Male",
+            "look": "Clean-Cut, Short Beard, Dark Jacket",
+            "color": "#475569",
+            "build": "Tall, Solid Frame"
         }
     },
     "financial_auditor": {
@@ -45,6 +57,12 @@
                 "Zero physical inventory ledger models",
                 "$1,000/mo subscription tier balancing"
             ]
+        },
+        "visuals": {
+            "sex": "Male",
+            "look": "Tailored Corporate Suit, Silver Hair",
+            "color": "#10b981",
+            "build": "Lean, Distinguished"
         }
     },
     "compliance_officer": {
@@ -59,6 +77,12 @@
                 "Clear promotional disclosure text blocks",
                 "State-by-state license exemption rules"
             ]
+        },
+        "visuals": {
+            "sex": "Female",
+            "look": "Elegant Professional Blazer, Neat Hair",
+            "color": "#be123c",
+            "build": "Sharp Posture, Balanced"
         }
     }
 }
