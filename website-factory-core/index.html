@@ -10,14 +10,41 @@
         .card { background: #111827; border: 1px solid #1f2937; border-radius: 8px; padding: 2.5rem; max-width: 600px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5); text-align: center; }
         h1 { color: #38bdf8; margin-top: 0; }
         p { color: #9ca3af; line-height: 1.6; }
-        .badge { background: #0369a1; color: #e0f2fe; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+        .badge { background: #0369a1; color: #e0f2fe; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+        .terminal-box { background: #05070f; border: 1px solid #1e293b; padding: 15px; border-radius: 6px; text-align: left; font-family: monospace; font-size: 0.9rem; color: #34d399; margin-top: 20px; overflow-x: auto; }
     </style>
 </head>
 <body>
     <div class="card">
-        <span class="badge">Engine Node Online</span>
+        <span id="engine-badge" class="badge">Engine Node Online</span>
         <h1>Top-Shelf Website Solutions</h1>
         <p>Your multi-tenant development grid is operating securely. Cloudflare global routing configurations are fully active across all mapped digital boundaries.</p>
+        
+        <!-- Live Avatar Runtime Status View -->
+        <div class="terminal-box">
+            <div>G-Man Runtime Stream:</div>
+            <div id="runtime-status" style="color: #94a3b8; margin-top: 5px;">Connecting to edge telemetry bindings...</div>
+        </div>
     </div>
+
+    <script>
+        // Automatic runtime loop fetching metadata variables directly from Cloudflare workers
+        async function fetchAvatarTelemetry() {
+            const statusBox = document.getElementById('runtime-status');
+            try {
+                // Queries the current domain's avatar pipeline path context dynamically
+                const response = await fetch('/api/avatar-status');
+                if (response.ok) {
+                    const data = await response.json();
+                    statusBox.innerHTML = Active Persona: <span style="color: #38bdf8;">\</span><br>Status: Running<br>Context: \;
+                } else {
+                    statusBox.innerText = "System idling. Awaiting deployment parameter keys.";
+                }
+            } catch (error) {
+                statusBox.innerText = "System idling. Awaiting deployment parameter keys.";
+            }
+        }
+        setTimeout(fetchAvatarTelemetry, 1500);
+    </script>
 </body>
 </html>
