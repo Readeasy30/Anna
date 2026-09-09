@@ -1,0 +1,34 @@
+{
+    "alpha": {
+        "name": "Alpha",
+        "industry": "Data Scraping & File Engineering",
+        "tier": "Level 1: The Logic Node",
+        "rendering_engine": "Static Vector Icon",
+        "intelligence_layer": "Ollama Local Code Brain",
+        "operational_status": "ready_for_showroom_display"
+    },
+    "bravos": {
+        "name": "Bravos",
+        "industry": "Local Business Lead Generator",
+        "tier": "Level 2: The Presenter",
+        "rendering_engine": "2D Photo Lip-Sync Animation",
+        "intelligence_layer": "TTS Audio + Text Processing",
+        "operational_status": "ready_for_showroom_display"
+    },
+    "maximus": {
+        "name": "Maximus",
+        "industry": "Webmasters LLC Customer Closer",
+        "tier": "Level 3: The Executive",
+        "rendering_engine": "Hyper-Real Talking Video Head",
+        "intelligence_layer": "Advanced Conversational API Node",
+        "operational_status": "ready_for_showroom_display"
+    },
+    "anna-android": {
+        "name": "Anna-Android",
+        "industry": "73-Hour Autonomous Website Builder",
+        "tier": "Level 4: The Autonomous Android",
+        "rendering_engine": "Full 3D Vector Space Render",
+        "intelligence_layer": "Open Manus Engine + Multi-Repo Access",
+        "operational_status": "ready_for_showroom_display"
+    }
+}

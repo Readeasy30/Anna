@@ -1,0 +1,5 @@
+﻿{
+    "contacts": [
+        { "email": "testmechanic@example.com", "shop_name": "Branson Auto Care", "city": "Branson", "status": "pending_first_shot" }
+    ]
+}
