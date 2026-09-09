@@ -1,0 +1,23 @@
+name: Deploy G-Man Avatar
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Base
+        uses: actions/checkout@v4
+
+      - name: Parse Operational System State
+        run: |
+          echo "Processing current wholelychit project configurations..."
+          if [ -f gman-avatar/avatar-config.json ]; then
+            cat gman-avatar/avatar-config.json
+          else
+            echo "Profile asset target missing from run workspace folder root."
+          fi
