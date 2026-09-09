@@ -1,4 +1,4 @@
-# Educational Site Avatar Manager Core Engine
+# Educational Site Avatar Manager Core Engine — Extended Edition
 # Context Boundary: wholelychit
 
 param (
@@ -20,14 +20,22 @@ Write-Host "=========================================================" -Foregrou
 Write-Host "Selected Target Domain    : [\]" -ForegroundColor Yellow
 Write-Host "Pipeline Command Activity : [\]" -ForegroundColor Yellow
 
-# Context Profile Resolution Switching Framework
+# Helper loop to trigger the Python notification script
+function Invoke-PythonNotification {
+    param ($Level, $Module, $Message)
+    $PyScript = "C:\Users\Wholelychit\Anna-agent\android-ops\notifier.py"
+    if (Test-Path $PyScript) {
+        # Execute headless python command safely passing parameter maps
+        python $PyScript $Level $Module "$Message" 2>$null
+    }
+}
+
 switch ($TargetSite) {
     "readeasy30.com" {
         $TenantProfile = @{
             "PersonaName"     = "G-Man Literacy Coach"
             "CloudflareWorker" = "https://workers.dev"
             "TargetModel"     = "gpt-4o"
-            "SystemPrompt"    = "You are the G-Man literacy avatar. Focus strictly on comprehension and decoding workflows."
         }
     }
     "matheasy30.com" {
@@ -35,18 +43,15 @@ switch ($TargetSite) {
             "PersonaName"     = "G-Man Math Mentor"
             "CloudflareWorker" = "https://workers.dev"
             "TargetModel"     = "o1-mini"
-            "SystemPrompt"    = "You are the G-Man step-by-step mathematical reasoning agent. Drive systematic calculation layouts."
         }
     }
 }
 
-# Core Pipeline Processing Architecture
 switch ($Action) {
     "initialize" {
         Write-Host "Activating tenant interface for [\]..." -ForegroundColor Green
-        Write-Host "Binding backend loops to worker network target: \" -ForegroundColor Gray
+        Invoke-PythonNotification -Level "INFO" -Module "Avatar Orchestrator" -Message "Initializing dynamic interface loop context for $TargetSite"
         
-        # Prepare dynamic JSON runtime footprint context string
         $StatePayload = @{
             "site" = $TargetSite
             "persona" = $TenantProfile.PersonaName
@@ -55,19 +60,18 @@ switch ($Action) {
             "timestamp" = (Get-Date).ToString("o")
         } | ConvertTo-Json -Compress
         
-        # Save local instance verification trace block
         $InstanceFile = Join-Path (Split-Path $PSCommandPath) "active_session_\.json"
         Set-Content -Path $InstanceFile -Value $StatePayload
-        Write-Host "Active state instance checkpointed cleanly to: \" -ForegroundColor Green
+        Write-Host "Active state instance checkpointed cleanly." -ForegroundColor Green
     }
     "sync_state" {
         Write-Host "Synchronizing worker context bindings across Cloudflare Edge tunnels..." -ForegroundColor Yellow
-        # Extensible gateway sync routines execute safely under this parameter block
+        Invoke-PythonNotification -Level "DEBUG" -Module "Avatar Orchestrator" -Message "Running synchronization checks for $TargetSite"
     }
     "terminate" {
         Write-Host "Spinning down engine listeners safely..." -ForegroundColor Red
+        Invoke-PythonNotification -Level "WARNING" -Module "Avatar Orchestrator" -Message "Terminating active tracking bounds for $TargetSite"
         $InstanceFile = Join-Path (Split-Path $PSCommandPath) "active_session_\.json"
         if (Test-Path $InstanceFile) { Remove-Item $InstanceFile -Force }
-        Write-Host "Tenant runtime interface isolated and cleared safely." -ForegroundColor Green
     }
 }
