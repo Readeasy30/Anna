@@ -1,0 +1,13 @@
+name: G-Man Workspace Automation
+on:
+  push:
+    branches: [ main ]
+jobs:
+  track-workspace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process Current Task Matrix
+        run: |
+          echo "Processing wholelychit project states..."
+          cat gman-avatar/avatar-config.json
